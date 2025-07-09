@@ -4,22 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="img/flowers.png" type="image/x-icon">
-    <title>oy</title>
+    <title>Modern 3D Animation</title>
 </head>
 <body>
     <div class="greetings">
-    <!-- silahkan menambah kata sesuai keinginan dengan <span>text...</span -->
-        <span>H</span>
-        <span>A</span>
-        <span>L</span>
-        <span>L</span>
-        <span>O</span>
-
-        <span>S</span>
-        <span>A</span>
-        <span>B</span>
+        <span data-text="H">H</span>
+        <span data-text="A">A</span>
+        <span data-text="L">L</span>
+        <span data-text="L">L</span>
+        <span data-text="O">O</span>
     </div>
     <div class="description">
         <span>Di Buka Dong</span>
@@ -28,7 +21,30 @@
         <button>
             <a href="flower.html">Klik disini</a>
         </button>
-        
     </div>
+
+    <script>
+        // Create floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 25000);
+        }
+        
+        // Create particles periodically
+        setInterval(createParticle, 3000);
+        
+        // Initial particles
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createParticle, i * 1000);
+        }
+    </script>
 </body>
 </html>
